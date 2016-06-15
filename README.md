@@ -19,7 +19,13 @@ $ npm i misskey-web-logger -g
 $ misskey-web-logger
 ```
 
-## Display options
+## Use
+### Output to a file
+``` shell
+$ misskey-web-logger > file.txt
+```
+
+## Help
 ``` shell
 $ misskey-web-logger -h
 ```
