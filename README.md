@@ -11,7 +11,17 @@ Logger of Misskey-Web
 
 ## Install
 ``` bash
-npm install misskey-web-logger
+$ npm i misskey-web-logger -g
+```
+
+## Run
+``` bash
+$ misskey-web-logger
+```
+
+## Display options
+``` bash
+$ misskey-web-logger -h
 ```
 
 ## License
