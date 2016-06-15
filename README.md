@@ -9,9 +9,10 @@ misskey-web-logger
 
 Logger of Misskey-Web
 
-## External dependencies
-* Node.js
-* npm
+## Install
+``` bash
+npm install misskey-web-logger
+```
 
 ## License
 [MIT](LICENSE)
