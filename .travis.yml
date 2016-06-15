@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "6.1.0"
 before_script:
-  - "npm run dtsm"
+  - "dtsm install"
 cache:
   directories:
     - node_modules
