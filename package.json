@@ -1,6 +1,6 @@
 {
   "name": "misskey-web-logger",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Misskey Web Logger",
   "author": "syuilo",
   "license": "MIT",
@@ -24,6 +24,7 @@
     "typescript": "1.8.10"
   },
   "dependencies": {
+    "argv": "0.0.2",
     "node-ipc": "7.0.0"
   },
   "private": false
