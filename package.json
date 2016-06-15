@@ -1,22 +1,16 @@
 {
   "name": "misskey-web-logger",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Misskey Web Logger",
-	"license": "MIT",
+  "author": "syuilo",
+  "license": "MIT",
   "main": "./built/index.js",
-  "typings": "./built/index.d.ts",
+  "preferGlobal": true,
+  "bin": {
+    "misskey-web-logger": "bin/misskey-web-logger"
+  },
   "repository": {
     "url": "https://github.com/syuilo/misskey-web-logger.git"
-  },
-  "scripts": {
-    "start": "node ./built/index.js",
-    "dtsm": "dtsm --insight false install",
-    "build": "gulp build",
-    "watch": "gulp watch",
-    "lint": "gulp lint",
-    "clean": "gulp clean",
-    "clean-all": "gulp clean-all",
-    "test": "gulp test"
   },
   "devDependencies": {
     "dtsm": "1.1.0",
