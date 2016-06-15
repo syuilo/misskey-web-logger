@@ -2,15 +2,17 @@
   "name": "misskey-web-logger",
   "version": "1.1.1",
   "description": "Misskey Web Logger",
+  "keywords": ["misskey"],
   "author": "syuilo",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/syuilo/misskey-web-logger.git"
+  },
+  "bugs": "https://github.com/syuilo/misskey-web-logger/issues",
   "main": "./built/index.js",
   "preferGlobal": true,
   "bin": {
     "misskey-web-logger": "bin/misskey-web-logger"
-  },
-  "repository": {
-    "url": "https://github.com/syuilo/misskey-web-logger.git"
   },
   "devDependencies": {
     "dtsm": "1.1.0",
