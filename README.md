@@ -1,4 +1,7 @@
-# misskey-web-logger
+misskey-web-logger
+------------------
+
+[![][npm-badge]][npm-link]
 [![][travis-badge]][travis-link]
 [![][david-badge]][david-link]
 [![][david-dev-badge]][david-dev-link]
@@ -13,6 +16,8 @@ Logger of Misskey-Web
 ## License
 [MIT](LICENSE)
 
+[npm-link]:        https://www.npmjs.com/package/misskey-web-logger
+[npm-badge]:       https://img.shields.io/npm/v/misskey-web-logger.svg?style=flat-square
 [mit]:             http://opensource.org/licenses/MIT
 [mit-badge]:       https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
 [travis-link]:     https://travis-ci.org/syuilo/misskey-web-logger
