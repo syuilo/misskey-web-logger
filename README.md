@@ -7,7 +7,7 @@ misskey-web-logger
 [![][david-dev-badge]][david-dev-link]
 [![][mit-badge]][mit]
 
-Logger of Misskey-Web
+Logger for [Misskey-Web](https://github.com/MissKernel/Misskey-Web)
 
 ## Install
 ``` shell
