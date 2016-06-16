@@ -27,6 +27,9 @@
  */
 
 const ipc = require('node-ipc');
+// import * as colors from 'colors';
+const colors = require('colors/safe');
+
 import argv from './argv';
 
 ipc.config.retry = 1000;
@@ -44,7 +47,14 @@ ipc.connectToNet('misskey-web', () => {
 	});
 
 	connection.on('misskey.log', (data: any) => {
-		log(data.path);
+		const date = data.date;
+		const method = data.method;
+		const host = data.host;
+		const path = data.path;
+		const ua = data.ua;
+		const ip = data.ip;
+
+		log(`${colors.gray(date)} ${method} ${colors.cyan(host)} ${colors.bold(path)} ${ua} ${colors.green(ip)}`);
 	});
 });
 
