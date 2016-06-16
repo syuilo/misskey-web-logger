@@ -28,6 +28,8 @@
 		"./src/argv.ts",
 		"./src/cli.ts",
 		"./src/index.ts",
-		"./src/ipc.ts"
+		"./src/ipc.ts",
+		"./src/util/paint.ts",
+		"./src/web/index.ts"
 	]
 }

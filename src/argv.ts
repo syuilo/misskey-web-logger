@@ -11,6 +11,18 @@ argv.option([{
 	description: 'Display version',
 	example: "misskey-web-logger -v"
 }, {
+	name: 'web',
+	short: 'w',
+	type: 'boolean',
+	description: 'Serve Web',
+	example: "misskey-web-logger -w"
+}, {
+	name: 'port',
+	short: 'p',
+	type: 'int',
+	description: 'Web port',
+	example: "misskey-web-logger -w -p 907"
+}, {
 	name: 'debug',
 	type: 'boolean',
 	description: 'Enable debug mode',

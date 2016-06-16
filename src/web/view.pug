@@ -1,0 +1,15 @@
+doctype html
+
+html(dir='ltr')
+	head
+		meta(charset='utf-8')
+		meta(name='application-name', content='MisskeyWebLogger')
+		title Misskey Web Log
+		link(rel='stylesheet', href='/style')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+		script(src='/socket.io/socket.io.js')
+		script(src='/script')
+
+	body
+		main
+			logs

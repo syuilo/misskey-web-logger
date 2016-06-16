@@ -41,4 +41,8 @@ if (argv.options['version']) {
 	});
 }
 
-require('./cli');
+if (argv.options['web']) {
+	require('./web');
+} else {
+	require('./cli');
+}
