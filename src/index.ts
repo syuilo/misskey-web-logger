@@ -35,7 +35,7 @@ import argv from './argv';
 ipc.config.retry = 1000;
 ipc.config.silent = true;
 
-ipc.connectToNet('misskey-web', () => {
+ipc.connectTo('misskey-web', () => {
 	const connection = ipc.of['misskey-web'];
 
 	connection.on('connect', () => {
