@@ -13,7 +13,7 @@ Logger for [Misskey-Web](https://github.com/MissKernel/Misskey-Web)
 
 ## Install
 ``` shell
-$ npm i misskey-web-logger -g
+$ npm i -g misskey-web-logger
 ```
 
 ## Run
