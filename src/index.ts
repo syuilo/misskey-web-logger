@@ -32,8 +32,10 @@ const colors = require('colors/safe');
 
 import argv from './argv';
 
+const debug = argv.options.hasOwnProperty('debug');
+
 ipc.config.retry = 1000;
-ipc.config.silent = true;
+ipc.config.silent = !debug;
 
 ipc.connectTo('misskey-web', () => {
 	const connection = ipc.of['misskey-web'];
@@ -59,7 +61,7 @@ ipc.connectTo('misskey-web', () => {
 });
 
 function info(msg: string): void {
-	if (argv.options.hasOwnProperty('debug')) {
+	if (debug) {
 		log(`### ${msg} ###`);
 	}
 }
