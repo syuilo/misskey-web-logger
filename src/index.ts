@@ -55,5 +55,5 @@ function info(msg: string): void {
 }
 
 function log(msg: string): void {
-	process.stdout.write(msg + '¥n');
+	process.stdout.write(msg + '\n');
 }
