@@ -2,7 +2,9 @@
   "name": "misskey-web-logger",
   "version": "1.1.4",
   "description": "Misskey Web Logger",
-  "keywords": ["misskey"],
+  "keywords": [
+    "misskey"
+  ],
   "author": "syuilo",
   "license": "MIT",
   "repository": {
@@ -19,13 +21,12 @@
     "gulp": "3.9.1",
     "gulp-tslint": "5.0.0",
     "gulp-typescript": "2.13.6",
-    "merge2": "1.0.2",
-    "tslint": "3.10.2",
-    "typescript": "1.8.10"
+    "merge2": "1.0.2"
   },
   "dependencies": {
     "argv": "0.0.2",
-    "node-ipc": "7.0.0"
+    "node-ipc": "7.0.0",
+    "tslint": "3.11.0"
   },
   "private": false
 }

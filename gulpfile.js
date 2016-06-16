@@ -5,9 +5,7 @@ const ts = require('gulp-typescript');
 const tslint = require('gulp-tslint');
 const merge = require('merge2');
 
-const project = ts.createProject('tsconfig.json', {
-	typescript: require('typescript')
-});
+const project = ts.createProject('tsconfig.json');
 
 gulp.task('build', [
 	'build:ts'
@@ -30,8 +28,6 @@ gulp.task('test', [
 
 gulp.task('lint', () =>
 	gulp.src('./src/**/*.ts')
-	.pipe(tslint({
-		tslint: require('tslint')
-	}))
+	.pipe(tslint())
 	.pipe(tslint.report('verbose'))
 );
