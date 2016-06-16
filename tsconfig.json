@@ -26,6 +26,8 @@
 		"./node_modules/typescript/lib/lib.es6.d.ts",
 		"./typings/bundle.d.ts",
 		"./src/argv.ts",
-		"./src/index.ts"
+		"./src/cli.ts",
+		"./src/index.ts",
+		"./src/ipc.ts"
 	]
 }

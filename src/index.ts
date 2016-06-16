@@ -27,10 +27,6 @@
  */
 
 const version = require('version');
-const ipc = require('node-ipc');
-// import * as colors from 'colors';
-const colors = require('colors/safe');
-
 import argv from './argv';
 
 if (argv.options['version']) {
@@ -45,40 +41,4 @@ if (argv.options['version']) {
 	});
 }
 
-const debug = argv.options['debug'] || false;
-
-ipc.config.retry = 1000;
-ipc.config.silent = !debug;
-
-ipc.connectTo('misskey-web', () => {
-	const connection = ipc.of['misskey-web'];
-
-	connection.on('connect', () => {
-		info('Connected to MisskeyWeb');
-	});
-
-	connection.on('disconnect', () => {
-		info('Disconnected from MisskeyWeb');
-	});
-
-	connection.on('misskey.log', (data: any) => {
-		const date = data.date;
-		const method = data.method;
-		const host = data.host;
-		const path = data.path;
-		const ua = data.ua;
-		const ip = data.ip;
-
-		log(`${colors.gray(date)} ${method} ${colors.cyan(host)} ${colors.bold(path)} ${ua} ${colors.green(ip)}`);
-	});
-});
-
-function info(msg: string): void {
-	if (debug) {
-		log(`### ${msg} ###`);
-	}
-}
-
-function log(msg: string): void {
-	process.stdout.write(msg + '\n');
-}
+require('./cli');
