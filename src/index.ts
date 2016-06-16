@@ -26,13 +26,26 @@
  * SOFTWARE.
  */
 
+const version = require('version');
 const ipc = require('node-ipc');
 // import * as colors from 'colors';
 const colors = require('colors/safe');
 
 import argv from './argv';
 
-const debug = argv.options.hasOwnProperty('debug');
+if (argv.options['version']) {
+	version.fetch((error: any, version: string) => {
+		if (error) {
+			console.error(error);
+		} else {
+			console.log(version);
+		}
+
+		process.exit();
+	});
+}
+
+const debug = argv.options['debug'] || false;
 
 ipc.config.retry = 1000;
 ipc.config.silent = !debug;
