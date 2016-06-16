@@ -9,6 +9,8 @@ misskey-web-logger
 
 Logger for [Misskey-Web](https://github.com/MissKernel/Misskey-Web)
 
+![](./resources/preview.gif)
+
 ## Install
 ``` shell
 $ npm i misskey-web-logger -g
