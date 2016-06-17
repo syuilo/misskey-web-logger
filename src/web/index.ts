@@ -10,6 +10,8 @@ import paint from '../util/paint';
 
 const debug = argv.options['debug'] || false;
 
+let webinfo: any = null;
+
 //////////////////////////////////////////////////
 // WEB SERVER
 
@@ -39,6 +41,10 @@ const server = app.listen(argv.options['port']);
 
 const oi = io(server);
 
+oi.on('connection', socket => {
+	socket.emit('info', webinfo);
+});
+
 //////////////////////////////////////////////////
 // IPC CONNECTION
 
@@ -51,16 +57,19 @@ ipc(connection => {
 		info('Disconnected from MisskeyWeb');
 	});
 
-	connection.on('misskey.log', log);
+	connection.on('misskey.info', (data: any) => {
+		webinfo = data;
+		oi.emit('info', data);
+	});
+
+	connection.on('misskey.log', (data: any) => {
+		data.color = paint(data.ip);
+		oi.emit('log', data);
+	});
 });
 
 function info(msg: string): void {
 	if (debug) {
 		console.log(`### ${msg} ###`);
 	}
-}
-
-function log(msg: any): void {
-	msg.color = paint(msg.ip);
-	oi.emit('log', msg);
 }

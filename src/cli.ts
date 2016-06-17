@@ -20,8 +20,9 @@ ipc(connection => {
 		const path = data.path;
 		const ua = data.ua;
 		const ip = data.ip;
+		const worker = data.worker;
 
-		log(`${colors.gray(date)} ${method} ${colors.cyan(host)} ${colors.bold(path)} ${ua} ${colors.green(ip)}`);
+		log(`${colors.gray(date)} ${method} ${colors.cyan(host)} ${colors.bold(path)} ${ua} ${colors.green(ip)} (${worker})`);
 	});
 });
 

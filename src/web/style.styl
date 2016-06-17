@@ -1,3 +1,7 @@
+$header-height = calc(1rem + 16px)
+
+@charset "utf-8"
+
 @import 'https://fonts.googleapis.com/css?family=Roboto+Mono'
 
 *
@@ -9,6 +13,164 @@ html, body
 	color #fff
 	background #000
 
+body
+	padding-top $header-height
+
+header
+	display block
+	position fixed
+	z-index 1
+	top 0
+	left 0
+	height $header-height
+	width 100%
+	font-size 0.8em
+	background #000
+	border-bottom solid 1px #222
+
+	left, right
+		height $header-height
+
+		> *
+			display inline-block
+			line-height $header-height
+
+		p
+			margin 0
+			padding 0
+
+	left
+		position absolute
+		left 0
+
+	right
+		position absolute
+		right 0
+
+	actions
+		border-left solid 1px #222
+
+		> *
+			display inline-block
+			line-height $header-height
+
+		button
+			-webkit-appearance none
+			-moz-appearance none
+			appearance none
+			user-select none
+			-moz-user-select none
+			-webkit-user-select none
+			-ms-user-select none
+			cursor pointer
+			padding 0 12px
+			margin 0
+			font-size 1em
+			color #ddd
+			outline none
+			border none
+			border-right solid 1px #111
+			border-radius 0
+			box-shadow none
+			background transparent
+			transition all .3s ease
+
+			*
+				pointer-events none
+
+			> i
+				margin-right 4px
+
+			&:hover
+				color #fff
+				transition all 0.1s ease
+
+			&:active
+				transition all 0s ease
+
+	#title
+		padding 0 12px
+		font-weight bold
+		color #b4cc7e
+		border-right solid 1px #222
+
+	machine
+		padding 0 12px
+		border-right solid 1px #222
+
+		&:before
+			content "MACHINE:"
+			color #eee
+			margin-right 4px
+
+	pid
+		padding 0 12px
+		color #ccc
+		border-right solid 1px #222
+
+		&:before
+			content "PID:"
+			margin-right 4px
+
+	uptime
+		padding 0 12px
+		min-width 12em
+		color #ccc
+		border-right solid 1px #222
+
+		&:before
+			content "UPTIME:"
+			margin-right 4px
+
+		&:after
+			content "s"
+
+	time
+		padding 0 12px
+		border-right solid 1px #222
+
+		&:before
+			content "\f017"
+			font-family FontAwesome
+			margin-right 6px
+
+		.yyyymmdd
+			margin-right 4px
+
+	#follow
+		color #fff
+		transition all .3s ease
+
+		> i
+			margin-right 4px
+
+		&.enable
+			color #c1e31c
+
+			&:hover
+				color lighten(#c1e31c, 30%)
+				transition all 0.1s ease
+
+			&:active
+				color darken(#c1e31c, 20%)
+				transition all 0s ease
+
+	#rec
+		color #fff
+		background #f00
+		transition all .3s ease
+
+		> i
+			margin-right 4px
+
+		&:hover
+			background #f22
+			transition all 0.1s ease
+
+		&:active
+			background #e00
+			transition all 0s ease
+
 logs
 	display block
 	margin 0
@@ -17,9 +179,10 @@ logs
 	log
 		display block
 		margin 0
-		padding 2px 4px
+		padding 2px 12px
 		font-size 0.8em
 		border-bottom solid 1px #222
+		cursor default
 
 		&:nth-child(even)
 			background rgba(255, 255, 255, 0.05)
@@ -53,3 +216,6 @@ logs
 
 		ua
 			opacity 0.7
+
+		worker
+			opacity 0.5

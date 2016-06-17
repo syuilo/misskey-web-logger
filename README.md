@@ -11,6 +11,9 @@ Logger for [Misskey-Web](https://github.com/MissKernel/Misskey-Web)
 
 ![](./resources/preview.gif)
 
+Web interface available:
+![](./resources/capture.png)
+
 ## Install
 ``` shell
 $ npm i -g misskey-web-logger

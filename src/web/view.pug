@@ -5,11 +5,34 @@ html(dir='ltr')
 		meta(charset='utf-8')
 		meta(name='application-name', content='MisskeyWebLogger')
 		title Misskey Web Log
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
 		link(rel='stylesheet', href='/style')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js')
 		script(src='/socket.io/socket.io.js')
 		script(src='/script')
 
 	body
+		header
+			left
+				p#title Misskey Web
+				machine
+				pid
+				uptime
+				time#now(datetime= Date.now())
+			right
+				actions
+					button#export
+						i.fa.fa-download
+						| Export
+					button#clear
+						i.fa.fa-times
+						| Clear
+					button.enable#follow
+						i.fa.fa-sort-amount-desc
+						| Follow
+					button#rec
+						i.fa.fa-pause
+						| REC
 		main
 			logs
