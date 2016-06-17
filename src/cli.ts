@@ -22,7 +22,9 @@ ipc(connection => {
 		const ip = data.ip;
 		const worker = data.worker;
 
-		log(`${colors.gray(date)} ${method} ${colors.cyan(host)} ${colors.bold(path)} ${ua} ${colors.green(ip)} (${worker})`);
+		/* tslint:disable max-line-length */
+		log(`${colors.gray(date)} ${method} ${colors.cyan(host)} ${colors.bold(path)} ${ua} ${colors.green(ip)} ${colors.gray('(' + worker + ')')}`);
+		/* tslint:enable max-line-length */
 	});
 });
 
