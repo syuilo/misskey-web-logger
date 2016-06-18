@@ -5,6 +5,11 @@ $header-height = calc(1rem + 16px)
 @import 'https://fonts.googleapis.com/css?family=Roboto+Mono'
 
 *
+	-webkit-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none
+	cursor default
 	font-family 'Roboto Mono', monospace
 
 html, body
@@ -43,6 +48,12 @@ header
 	left
 		position absolute
 		left 0
+
+		&, *
+			-webkit-user-select text
+			-moz-user-select text
+			-ms-user-select text
+			user-select text
 
 	right
 		position absolute
@@ -126,8 +137,9 @@ header
 		&:after
 			content "s"
 
-	time
+	#now
 		padding 0 12px
+		color #f0f0f0
 		border-right solid 1px #222
 
 		&:before
@@ -206,6 +218,12 @@ main
 						&, *
 							color #000 !important
 
+					&, *
+						-webkit-user-select text
+						-moz-user-select text
+						-ms-user-select text
+						user-select text
+
 					*
 						display inline
 						margin 0 8px
@@ -270,6 +288,12 @@ main
 
 						td
 							padding 4px 12px
+
+							&, *
+								-webkit-user-select text
+								-moz-user-select text
+								-ms-user-select text
+								user-select text
 
 							date
 								opacity 0.5

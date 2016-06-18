@@ -1,5 +1,7 @@
 follow = true
 
+logs = []
+
 window.onscroll = ->
 	$window = $ window
 	height = $window.height!
@@ -29,6 +31,8 @@ $ ->
 		$ \uptime .text data.uptime
 
 	socket.on \log (data) ->
+		logs.push data
+
 		date = data.date
 		method = data.method
 		host = data.host
@@ -84,7 +88,9 @@ $ ->
 			scroll-bottom!
 
 	$ \#clear .click ->
-		$ \logs .empty!
+		logs := []
+		$ 'main > views > line-view > logs' .empty!
+		$ 'main > views > table-view > table > tbody' .empty!
 
 	$ \#follow .click ->
 		follow := !follow
@@ -129,13 +135,15 @@ function update-clock
 	s = (new Date!).get-seconds!
 	m = (new Date!).get-minutes!
 	h = (new Date!).get-hours!
+
 	yyyymmdd = moment!.format 'YYYY/MM/DD'
-	yyyymmdd = "<span class='yyyymmdd'>#yyyymmdd</span>"
 	hhmmss = moment!.format 'HH:mm:ss'
-	hhmmss = "<span class='hhmmss'>#hhmmss</span>"
+
 	if s % 2 == 0
-		hhmmss .= replace /:/g '<span style=\'visibility:visible\'>:</span>'
+		hhmmss .= replace /:/g ':'
 	else
-		hhmmss .= replace /:/g '<span style=\'visibility:hidden\'>:</span>'
-	clock = $ '#now'
-	clock.html "#yyyymmdd#hhmmss"
+		hhmmss .= replace /:/g ' '
+
+	$clock = $ '#now'
+	$clock.children \.yyyymmdd .text yyyymmdd
+	$clock.children \.hhmmss .text hhmmss
