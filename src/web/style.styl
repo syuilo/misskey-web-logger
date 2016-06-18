@@ -19,6 +19,7 @@ html, body
 	background #000
 
 body
+	-webkit-text-size-adjust 100%
 	padding-top $header-height
 
 header
@@ -296,3 +297,7 @@ header
 
 				&[data-column='worker']
 					color rgba(#fff, 0.5)
+
+@media (max-width: 800px)
+	html
+		font-size 0.5em
