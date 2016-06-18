@@ -50,7 +50,10 @@ $ ->
 
 		if follow
 			$ \#follow .add-class \enable
-			scroll-bottom!
+			$ 'html, body' .animate do
+				scroll-top: ($ \html .outer-height!) - $ window .height!
+				100ms
+				\swing
 		else
 			$ \#follow .remove-class \enable
 
