@@ -19,7 +19,7 @@ body
 header
 	display block
 	position fixed
-	z-index 1
+	z-index 1024
 	top 0
 	left 0
 	height $header-height
@@ -172,48 +172,113 @@ header
 			background #e00
 			transition all 0s ease
 
-logs
+main
 	display block
-	margin 0
-	padding 0
 
-	log
+	views
 		display block
-		margin 0
-		padding 2px 12px
-		font-size 0.8em
-		border-bottom solid 1px #222
-		cursor default
 
-		&:nth-child(even)
-			background rgba(255, 255, 255, 0.05)
+		line-view
+			display none
 
-		&:hover
-			background rgba(255, 255, 255, 0.1)
+			logs
+				display block
+				margin 0
+				padding 0
 
-		&:focus
-			background #02d7e1
-			outline none
+				log
+					display block
+					margin 0
+					padding 2px 12px
+					font-size 0.8em
+					cursor default
 
-		*
-			display inline
-			margin 0 8px
-			cursor default
+					&:nth-child(even)
+						background rgba(255, 255, 255, 0.05)
 
-			&:first-child
-				margin-left 0
+					&:hover
+						background rgba(255, 255, 255, 0.1)
 
-			&:last-child
-				margin-right 0
+					&:focus
+						background #02d7e1
+						outline none
 
-		date
-			opacity 0.5
+						&, *
+							color #000 !important
 
-		host
-			color #008080
+					*
+						display inline
+						margin 0 8px
+						cursor default
 
-		ua
-			opacity 0.7
+						&:first-child
+							margin-left 0
 
-		worker
-			opacity 0.5
+						&:last-child
+							margin-right 0
+
+					date
+						opacity 0.5
+
+					host
+						color #008080
+
+					ua
+						opacity 0.7
+
+					worker
+						opacity 0.5
+
+		table-view
+			display block
+
+			table
+				width 100%
+				border-collapse collapse
+
+				thead
+					width 100%
+					font-size 0.8em
+					background #222
+					border-bottom solid 1px #222
+
+					tr
+						th
+							padding 6px 12px
+							text-align left
+
+				tbody
+					font-size 0.8em
+
+					tr
+						margin 0
+						padding 2px 12px
+						cursor default
+
+						&:nth-child(even)
+							background rgba(255, 255, 255, 0.05)
+
+						&:hover
+							background rgba(255, 255, 255, 0.1)
+
+						&:focus
+							background #02d7e1
+							outline none
+
+							&, *
+								color #000 !important
+
+						td
+							padding 4px 12px
+
+							date
+								opacity 0.5
+
+							host
+								color #008080
+
+							ua
+								opacity 0.7
+
+							worker
+								opacity 0.5

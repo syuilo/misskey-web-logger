@@ -35,4 +35,17 @@ html(dir='ltr')
 						i.fa.fa-pause
 						| REC
 		main
-			logs
+			views
+				line-view
+					logs
+				table-view
+					table
+						thead: tr
+							th Requested At
+							th Method
+							th Host
+							th Path
+							th User-Agent
+							th Remote Addr
+							th Worker
+						tbody
