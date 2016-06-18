@@ -35,6 +35,7 @@ header
 	left, right
 		height $header-height
 		background inherit
+		white-space nowrap
 
 		> *
 			display inline-block
@@ -186,53 +187,106 @@ header
 main
 	display block
 
-	views
-		display block
+	> table
+		width 100%
+		border-collapse collapse
+		table-layout fixed
 
-		line-view
-			display none
+		[data-column='date']
+			width 8%
 
-			logs
+		[data-column='method']
+			width 4%
+
+		[data-column='host']
+			width 12%
+
+		[data-column='path']
+			width 22%
+
+		[data-column='ua']
+			width 37%
+
+		[data-column='ip']
+			width 10%
+
+		[data-column='worker']
+			width 7%
+
+		> thead
+			display block
+			position fixed
+			z-index 1
+			top $header-height
+			left 0
+			width 100%
+			font-size 0.8em
+			background #222
+
+			&.dragging tr th:not(.chosen)
+				background transparent !important
+
+			tr
 				display block
-				margin 0
-				padding 0
+				position relative
+				width 100%
 
-				log
-					display block
-					margin 0
-					padding 2px 12px
-					font-size 0.8em
-					cursor default
-
-					&:nth-child(even)
-						background rgba(255, 255, 255, 0.05)
+				th
+					display inline-block
+					position relative
+					box-sizing border-box
+					padding 6px 12px
+					text-align left
+					word-wrap break-word
+					white-space nowrap
+					text-overflow ellipsis
+					overflow hidden
 
 					&:hover
-						background rgba(255, 255, 255, 0.1)
+						background #333
 
-					&:focus
-						background #02d7e1
-						outline none
+					&.chosen
+						background #f33
 
-						&, *
-							color #000 !important
+		> tbody
+			display block
+			font-size 0.8em
+
+			tr
+				display block
+				position relative
+				margin 0
+				padding 2px 0
+				width 100%
+				cursor default
+
+				&:nth-child(even)
+					background rgba(255, 255, 255, 0.05)
+
+				&:hover
+					background rgba(255, 255, 255, 0.1)
+
+				&:focus
+					background #02d7e1
+					outline none
+
+					&, *
+						color #000 !important
+
+				td
+					display inline-block
+					box-sizing border-box
+					padding 4px 12px
+					word-wrap break-word
+					white-space nowrap
+					text-overflow ellipsis
+					overflow hidden
 
 					&, *
 						-webkit-user-select text
 						-moz-user-select text
 						-ms-user-select text
 						user-select text
-
-					*
-						display inline
-						margin 0 8px
-						cursor default
-
-						&:first-child
-							margin-left 0
-
-						&:last-child
-							margin-right 0
 
 					date
 						opacity 0.5
@@ -245,76 +299,3 @@ main
 
 					worker
 						opacity 0.5
-
-		table-view
-			display block
-
-			table
-				width 100%
-				border-collapse collapse
-
-				thead
-					width 100%
-					font-size 0.8em
-					background #222
-
-					&:not(.fixed)
-						pointer-events none
-						visibility hidden
-
-					&.dragging tr th:not(.chosen)
-						background transparent !important
-
-					tr
-						th
-							position relative
-							padding 6px 12px
-							text-align left
-
-							&:hover
-								background #333
-
-							&.chosen
-								background #f33
-
-				tbody
-					font-size 0.8em
-
-					tr
-						margin 0
-						padding 2px 12px
-						cursor default
-
-						&:nth-child(even)
-							background rgba(255, 255, 255, 0.05)
-
-						&:hover
-							background rgba(255, 255, 255, 0.1)
-
-						&:focus
-							background #02d7e1
-							outline none
-
-							&, *
-								color #000 !important
-
-						td
-							padding 4px 12px
-
-							&, *
-								-webkit-user-select text
-								-moz-user-select text
-								-ms-user-select text
-								user-select text
-
-							date
-								opacity 0.5
-
-							host
-								color #008080
-
-							ua
-								opacity 0.7
-
-							worker
-								opacity 0.5

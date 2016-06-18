@@ -38,17 +38,13 @@ html(dir='ltr')
 						i.fa.fa-pause
 						| REC
 		main
-			views
-				line-view
-					logs
-				table-view
-					table
-						thead: tr
-							th(data-column='date') Requested At
-							th(data-column='method') Method
-							th(data-column='host') Host
-							th(data-column='path') Path
-							th(data-column='ua') User-Agent
-							th(data-column='ip') Remote Addr
-							th(data-column='worker') Worker
-						tbody
+			table#logs
+				thead: tr
+					th(data-column='date') Requested At
+					th(data-column='method') Method
+					th(data-column='host') Host
+					th(data-column='path') Path
+					th(data-column='ua') User-Agent
+					th(data-column='ip') Remote Addr
+					th(data-column='worker') Worker
+				tbody
