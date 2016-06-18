@@ -93,8 +93,18 @@ function sort-column(columns, $tr)
 function init-fix-thead
 	$head = $ '#logs > thead'
 	Sortable.create ($head.children \tr).0, {
+		group: \columns
 		animation: 150ms
 		chosen-class: \chosen
+		store:
+			get: (sortable) ->
+				order = local-storage.get-item sortable.options.group.name
+				if order then order.split \| else []
+
+			set: (sortable) ->
+				order = sortable.to-array!
+				local-storage.set-item sortable.options.group.name, order.join \|
+
 		on-start: ->
 			$head.add-class \dragging
 		on-end: ->
