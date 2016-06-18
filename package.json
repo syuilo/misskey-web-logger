@@ -1,6 +1,6 @@
 {
   "name": "misskey-web-logger",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Misskey Web Logger",
   "keywords": [
     "misskey"
@@ -34,7 +34,7 @@
     "express": "4.14.0",
     "node-ipc": "7.0.0",
     "pug": "2.0.0-beta3",
-    "seedrandom": "^2.4.2",
+    "seedrandom": "2.4.2",
     "socket.io": "1.4.6",
     "version": "0.1.2"
   },
