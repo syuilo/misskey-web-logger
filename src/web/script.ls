@@ -150,6 +150,8 @@ function init-fix-thead
 	fix-thead!
 
 function fix-thead
+	scroll-left = $ window .scroll-left!
+
 	$table = $ 'main > views > table-view > table'
 	$head = $table.children 'thead:not(.fixed)'
 
@@ -167,6 +169,7 @@ function fix-thead
 		position: \fixed
 		'z-index': 1
 		top: $ 'body > header' .outer-height! + \px
+		left: -scroll-left + \px
 		width: $head.outer-width! + \px
 	}
 
