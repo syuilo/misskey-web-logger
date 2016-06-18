@@ -1,6 +1,8 @@
+limit = 1024
+
 follow = true
 
-logs = []
+logs = (JSON.parse local-storage.get-item \log) || []
 
 window.onscroll = ->
 	$window = $ window
@@ -27,47 +29,18 @@ $ ->
 		$ \uptime .text data.uptime
 
 	socket.on \log (data) ->
+		add-log data
+		if logs.length > limit
+			logs.shift!
 		logs.push data
+		local-storage.set-item \log JSON.stringify logs
 
-		date = data.date
-		method = data.method
-		host = data.host
-		path = data.path
-		ua = data.ua
-		ip = data.ip
-		color = data.color
-		worker = data.worker
-
-		$table = $ \#logs
-		$body = $table.children \tbody
-		$head = $table.children \thead
-
-		$tr = $ "<tr tabindex=0>
-			<td data-column='date'>#{date}</td>
-			<td data-column='method'>#{method}</td>
-			<td data-column='host'>#{host}</td>
-			<td data-column='path'>#{path}</td>
-			<td data-column='ua'>#{ua}</td>
-			<td data-column='ip'><ip style='background:#{color.background};color:#{color.foreground} !important;'>#{ip}</ip></td>
-			<td data-column='worker'>(#{worker})</td>
-		</tr>"
-
-		columns = []
-		$head.children \tr .children \th .each ->
-			columns.push ($ @ .attr \data-column)
-
-		sort-column columns, $tr
-
-		$tr.append-to $body
-
-		if ($body.children \tr .length) > 1024
-			($body.children \tr)[0].remove!
-
-		if follow
-			scroll-bottom!
+	$ \#export .click ->
+		$ @ .attr \href 'data:application/octet-stream,' + encodeURIComponent JSON.stringify logs
 
 	$ \#clear .click ->
 		logs := []
+		local-storage.set-item \log JSON.stringify logs
 		$ '#logs > tbody' .empty!
 
 	$ \#follow .click ->
@@ -80,8 +53,47 @@ $ ->
 			$ \#follow .remove-class \enable
 
 	init-fix-thead!
+	logs.for-each add-log
 	update-clock!
 	set-interval update-clock, 1000ms
+
+function add-log(data)
+	date = data.date
+	method = data.method
+	host = data.host
+	path = data.path
+	ua = data.ua
+	ip = data.ip
+	color = data.color
+	worker = data.worker
+
+	$table = $ \#logs
+	$body = $table.children \tbody
+	$head = $table.children \thead
+
+	$tr = $ "<tr tabindex=0>
+		<td data-column='date'>#{date}</td>
+		<td data-column='method'>#{method}</td>
+		<td data-column='host'>#{host}</td>
+		<td data-column='path'>#{path}</td>
+		<td data-column='ua'>#{ua}</td>
+		<td data-column='ip'><ip style='background:#{color.background};color:#{color.foreground} !important;'>#{ip}</ip></td>
+		<td data-column='worker'>(#{worker})</td>
+	</tr>"
+
+	columns = []
+	$head.children \tr .children \th .each ->
+		columns.push ($ @ .attr \data-column)
+
+	sort-column columns, $tr
+
+	$tr.append-to $body
+
+	if ($body.children \tr .length) > limit
+		($body.children \tr)[0].remove!
+
+	if follow
+		scroll-bottom!
 
 function scroll-bottom
 	scroll 0, ($ \html .outer-height!)
