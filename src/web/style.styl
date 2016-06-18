@@ -262,6 +262,9 @@ main
 						pointer-events none
 						visibility hidden
 
+					&.dragging tr th:not(.chosen)
+						background transparent !important
+
 					tr
 						th
 							position relative
@@ -269,18 +272,10 @@ main
 							text-align left
 
 							&:hover
-								background #282828
+								background #333
 
-								&:before
-									content ""
-									pointer-events none
-									display block
-									position absolute
-									top -6px
-									left 0
-									width 100%
-									height 114514px
-									background rgba(255, 255, 255, 0.025)
+							&.chosen
+								background #f33
 
 				tbody
 					font-size 0.8em

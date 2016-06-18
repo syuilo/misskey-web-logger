@@ -8,6 +8,7 @@ html(dir='ltr')
 		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
 		link(rel='stylesheet', href='/style')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js')
 		script(src='/socket.io/socket.io.js')
 		script(src='/script')
@@ -43,11 +44,11 @@ html(dir='ltr')
 				table-view
 					table
 						thead: tr
-							th Requested At
-							th Method
-							th Host
-							th Path
-							th User-Agent
-							th Remote Addr
-							th Worker
+							th(data-column='date') Requested At
+							th(data-column='method') Method
+							th(data-column='host') Host
+							th(data-column='path') Path
+							th(data-column='ua') User-Agent
+							th(data-column='ip') Remote Addr
+							th(data-column='worker') Worker
 						tbody
