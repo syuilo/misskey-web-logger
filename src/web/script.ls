@@ -79,13 +79,18 @@ function add-log(data)
 	color = data.color
 	worker = data.worker
 
+	method-color = switch method
+		| \GET => \#007acc
+		| \POST => \#ff6a00
+		| _ => \#fff
+
 	$table = $ \#logs
 	$body = $table.children \tbody
 	$head = $table.children \thead
 
 	$tr = $ "<tr tabindex=0>
 		<td data-column='date'>#{date}</td>
-		<td data-column='method'>#{method}</td>
+		<td data-column='method' style='color:#{method-color};'>#{method}</td>
 		<td data-column='host'>#{host}</td>
 		<td data-column='path'>#{path}</td>
 		<td data-column='ua'>#{ua}</td>
