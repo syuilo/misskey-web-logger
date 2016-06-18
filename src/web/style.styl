@@ -49,12 +49,6 @@ header
 		position absolute
 		left 0
 
-		&, *
-			-webkit-user-select text
-			-moz-user-select text
-			-ms-user-select text
-			user-select text
-
 	right
 		position absolute
 		right 0
@@ -184,118 +178,109 @@ header
 			background #e00
 			transition all 0s ease
 
-main
-	display block
+#logs
+	width 100%
+	border-collapse collapse
+	table-layout fixed
 
-	> table
+	[data-column='date']
+		width 8%
+
+	[data-column='method']
+		width 4%
+
+	[data-column='host']
+		width 12%
+
+	[data-column='path']
+		width 22%
+
+	[data-column='ua']
+		width 37%
+
+	[data-column='ip']
+		width 10%
+
+	[data-column='worker']
+		width 7%
+
+	> thead
+		display block
+		position fixed
+		z-index 1
+		top $header-height
+		left 0
 		width 100%
-		border-collapse collapse
-		table-layout fixed
+		font-size 0.8em
+		background #222
 
-		[data-column='date']
-			width 8%
+		&.dragging tr th:not(.chosen)
+			background transparent !important
 
-		[data-column='method']
-			width 4%
-
-		[data-column='host']
-			width 12%
-
-		[data-column='path']
-			width 22%
-
-		[data-column='ua']
-			width 37%
-
-		[data-column='ip']
-			width 10%
-
-		[data-column='worker']
-			width 7%
-
-		> thead
+		tr
 			display block
-			position fixed
-			z-index 1
-			top $header-height
-			left 0
+			position relative
 			width 100%
-			font-size 0.8em
-			background #222
 
-			&.dragging tr th:not(.chosen)
-				background transparent !important
-
-			tr
-				display block
+			th
+				display inline-block
 				position relative
-				width 100%
-
-				th
-					display inline-block
-					position relative
-					box-sizing border-box
-					padding 6px 12px
-					text-align left
-					word-wrap break-word
-					white-space nowrap
-					text-overflow ellipsis
-					overflow hidden
-
-					&:hover
-						background #333
-
-					&.chosen
-						background #f33
-
-		> tbody
-			display block
-			font-size 0.8em
-
-			tr
-				display block
-				position relative
-				margin 0
-				padding 2px 0
-				width 100%
-				cursor default
-
-				&:nth-child(even)
-					background rgba(255, 255, 255, 0.05)
+				box-sizing border-box
+				padding 6px 12px
+				text-align left
+				word-wrap break-word
+				white-space nowrap
+				text-overflow ellipsis
+				overflow hidden
 
 				&:hover
-					background rgba(255, 255, 255, 0.1)
+					background #333
 
-				&:focus
-					background #02d7e1
-					outline none
+				&.chosen
+					background #f33
 
-					&, *
-						color #000 !important
+	> tbody
+		display block
+		font-size 0.8em
 
-				td
-					display inline-block
-					box-sizing border-box
-					padding 4px 12px
-					word-wrap break-word
-					white-space nowrap
-					text-overflow ellipsis
-					overflow hidden
+		tr
+			display block
+			position relative
+			margin 0
+			padding 2px 0
+			width 100%
+			cursor default
 
-					&, *
-						-webkit-user-select text
-						-moz-user-select text
-						-ms-user-select text
-						user-select text
+			&:nth-child(even)
+				background rgba(255, 255, 255, 0.05)
 
-					&[data-column='date']
-						color rgba(#fff, 0.5)
+			&:hover
+				background rgba(255, 255, 255, 0.1)
 
-					&[data-column='host']
-						color #008080
+			&:focus
+				background #02d7e1
+				outline none
 
-					&[data-column='ua']
-						color rgba(#fff, 0.7)
+				&, *
+					color #000 !important
 
-					&[data-column='worker']
-						color rgba(#fff, 0.5)
+			td
+				display inline-block
+				box-sizing border-box
+				padding 4px 12px
+				word-wrap break-word
+				white-space nowrap
+				text-overflow ellipsis
+				overflow hidden
+
+				&[data-column='date']
+					color rgba(#fff, 0.5)
+
+				&[data-column='host']
+					color #008080
+
+				&[data-column='ua']
+					color rgba(#fff, 0.7)
+
+				&[data-column='worker']
+					color rgba(#fff, 0.5)

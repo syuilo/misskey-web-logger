@@ -61,6 +61,7 @@ $ ->
 		sort-column columns, $tr
 
 		$tr.append-to $body
+
 		if ($body.children \tr .length) > 1024
 			($body.children \tr)[0].remove!
 

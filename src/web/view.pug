@@ -37,14 +37,13 @@ html(dir='ltr')
 					button#rec
 						i.fa.fa-pause
 						| REC
-		main
-			table#logs
-				thead: tr
-					th(data-column='date') Requested At
-					th(data-column='method') Method
-					th(data-column='host') Host
-					th(data-column='path') Path
-					th(data-column='ua') User-Agent
-					th(data-column='ip') Remote Addr
-					th(data-column='worker') Worker
-				tbody
+		table#logs
+			thead: tr
+				th(data-column='date') Requested At
+				th(data-column='method') Method
+				th(data-column='host') Host
+				th(data-column='path') Path
+				th(data-column='ua') User-Agent
+				th(data-column='ip') Remote Addr
+				th(data-column='worker') Worker
+			tbody
