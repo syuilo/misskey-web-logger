@@ -31,7 +31,6 @@ header
 	width 100%
 	font-size 0.8em
 	background #000
-	border-bottom solid 1px #222
 
 	left, right
 		height $header-height
@@ -258,12 +257,30 @@ main
 					width 100%
 					font-size 0.8em
 					background #222
-					border-bottom solid 1px #222
+
+					&:not(.fixed)
+						pointer-events none
+						visibility hidden
 
 					tr
 						th
+							position relative
 							padding 6px 12px
 							text-align left
+
+							&:hover
+								background #282828
+
+								&:before
+									content ""
+									pointer-events none
+									display block
+									position absolute
+									top -6px
+									left 0
+									width 100%
+									height 114514px
+									background rgba(255, 255, 255, 0.025)
 
 				tbody
 					font-size 0.8em

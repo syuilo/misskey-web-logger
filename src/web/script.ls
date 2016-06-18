@@ -101,6 +101,8 @@ $ ->
 		else
 			$ \#follow .remove-class \enable
 
+	fix-thead!
+
 	update-clock!
 	set-interval update-clock, 1000ms
 
