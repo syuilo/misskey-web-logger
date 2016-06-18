@@ -165,19 +165,30 @@ header
 
 	#rec
 		color #fff
-		background #f00
+		background #000
 		transition all .3s ease
+
+		&:hover
+			background #111
+			transition all 0.1s ease
+
+		&:active
+			background #222
+			transition all 0s ease
+
+		&.enable
+			color #fff
+			background #f00
+
+			&:hover
+				background #f22
+
+			&:active
+				background #e00
 
 		> i
 			margin-right 4px
 
-		&:hover
-			background #f22
-			transition all 0.1s ease
-
-		&:active
-			background #e00
-			transition all 0s ease
 
 #logs
 	width 100%

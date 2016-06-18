@@ -1,6 +1,7 @@
 limit = 1024
 
 follow = true
+rec = true
 
 logs = (JSON.parse local-storage.get-item \log) || []
 
@@ -29,11 +30,12 @@ $ ->
 		$ \uptime .text data.uptime
 
 	socket.on \log (data) ->
-		add-log data
-		if logs.length > limit
-			logs.shift!
-		logs.push data
-		local-storage.set-item \log JSON.stringify logs
+		if rec
+			add-log data
+			if logs.length > limit
+				logs.shift!
+			logs.push data
+			local-storage.set-item \log JSON.stringify logs
 
 	$ \#export .click ->
 		$ @ .attr \href 'data:application/octet-stream,' + encodeURIComponent JSON.stringify logs
@@ -51,6 +53,16 @@ $ ->
 			scroll-bottom!
 		else
 			$ \#follow .remove-class \enable
+
+	$ \#rec .click ->
+		rec := !rec
+
+		if rec
+			$ \#rec .add-class \enable
+			$ '#rec > i' .attr \class 'fa fa-pause'
+		else
+			$ \#rec .remove-class \enable
+			$ '#rec > i' .attr \class 'fa fa-play'
 
 	init-fix-thead!
 	logs.for-each add-log
