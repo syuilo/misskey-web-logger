@@ -135,7 +135,7 @@ function init-fix-thead
 			$fixed-head.add-class \dragging
 		on-end: ->
 			$fixed-head.remove-class \dragging
-		on-sort: ->
+		on-update: ->
 			$head.children \tr .empty!
 			$ths = $fixed-head.children \tr .children \th
 			columns = []
