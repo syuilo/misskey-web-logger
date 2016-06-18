@@ -15,12 +15,10 @@ window.onscroll = ->
 	else
 		$ \#follow .remove-class \enable
 
-window.onresize = ->
+window.onload = ->
 	$ '#logs > tbody' .css \padding-top ($ '#logs > thead' .outer-height!) + \px
 
 $ ->
-	$ '#logs > tbody' .css \padding-top ($ '#logs > thead' .outer-height!) + \px
-
 	socket = io.connect!
 
 	socket.on \info (data) ->
