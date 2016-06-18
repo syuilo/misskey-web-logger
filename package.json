@@ -1,6 +1,6 @@
 {
   "name": "misskey-web-logger",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Misskey Web Logger",
   "keywords": [
     "misskey"
