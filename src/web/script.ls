@@ -45,13 +45,13 @@ $ ->
 		$head = $table.children \thead
 
 		$tr = $ "<tr tabindex=0>
-			<td data-column='date'><date>#{date}</date></td>
-			<td data-column='method'><method>#{method}</method></td>
-			<td data-column='host'><host>#{host}</host></td>
-			<td data-column='path'><path>#{path}</path></td>
-			<td data-column='ua'><ua>#{ua}</ua></td>
+			<td data-column='date'>#{date}</td>
+			<td data-column='method'>#{method}</td>
+			<td data-column='host'>#{host}</td>
+			<td data-column='path'>#{path}</td>
+			<td data-column='ua'>#{ua}</td>
 			<td data-column='ip'><ip style='background:#{color.background};color:#{color.foreground} !important;'>#{ip}</ip></td>
-			<td data-column='worker'><worker>(#{worker})</worker></td>
+			<td data-column='worker'>(#{worker})</td>
 		</tr>"
 
 		columns = []
