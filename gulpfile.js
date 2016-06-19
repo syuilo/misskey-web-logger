@@ -40,7 +40,12 @@ gulp.task('build:styles', () => {
 });
 
 gulp.task('build:copy', () => {
-	return gulp.src('./src/web/**/*')
+	return gulp.src([
+		'./src/web/**/*',
+		'!**/*.ts',
+		'!**/*.ls',
+		'!**/*.styl'
+	])
 		.pipe(gulp.dest('./built/web/'));
 });
 
