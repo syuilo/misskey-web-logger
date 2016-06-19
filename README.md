@@ -7,6 +7,8 @@ misskey-web-logger
 [![][david-dev-badge]][david-dev-link]
 [![][mit-badge]][mit]
 
+[![NPM](https://nodei.co/npm/misskey-web-logger.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/misskey-web-logger/)
+
 Logger for [Misskey-Web](https://github.com/MissKernel/Misskey-Web)
 
 ![](./resources/preview.gif)
@@ -22,12 +24,6 @@ $ npm i -g misskey-web-logger
 ## Run
 ``` shell
 $ misskey-web-logger
-```
-
-## Use
-### Output to a file
-``` shell
-$ misskey-web-logger > file.txt
 ```
 
 ## Help
