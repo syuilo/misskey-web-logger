@@ -20,22 +20,22 @@
     "dtsm": "1.1.0",
     "gulp": "3.9.1",
     "gulp-livescript": "3.0.1",
-    "gulp-stylus": "2.4.0",
-    "gulp-tslint": "5.0.0",
-    "gulp-typescript": "2.13.6",
+    "gulp-stylus": "2.6.0",
+    "gulp-tslint": "7.0.1",
+    "gulp-typescript": "3.1.4",
     "livescript": "1.5.0",
-    "merge2": "1.0.2",
-    "tslint": "3.11.0",
-    "typescript": "1.8.10"
+    "merge2": "1.0.3",
+    "tslint": "4.3.1",
+    "typescript": "2.1.5"
   },
   "dependencies": {
     "argv": "0.0.2",
     "colors": "1.1.2",
     "express": "4.14.0",
-    "node-ipc": "7.0.0",
-    "pug": "2.0.0-beta3",
+    "node-ipc": "8.10.2",
+    "pug": "2.0.0-beta6",
     "seedrandom": "2.4.2",
-    "socket.io": "1.4.6",
+    "socket.io": "1.7.2",
     "version": "0.1.2"
   },
   "private": false
